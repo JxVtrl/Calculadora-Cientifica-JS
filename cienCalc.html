@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <input type="checkbox" id="checking">
+    <label for="checking" id="openMenu">Calculadora Científica Apple</label>
+    <nav>
+        <ul>
+            <li>
+                <a onclick="Contato()">Contato</a>
+            </li>
+            <li>
+                <a href="https://github.com/JxVtrl/Projetos-JS/tree/JS/Projetos" target="_blank" id="myProjects">Meus projetos</a>
+            </li>
+            <li>
+                <a onclick="Sobre()">Sobre este projeto</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="divContato" style="display: none;">
+        <header id="headerContato">
+            <h1>Onde me encontrar:</h1>
+            <img src="img/close-btn.png" alt="x-btn" onclick="Contato()">
+        </header>
+        <div id="contatoLinks">
+            <ul>
+                <li><a href="https://github.com/JxVtrl" target="_blank"><img src="img/toIcon/github.ico" alt="github" class="icon"><span class="nome">GitHub</span></a></li>
+                <li><a href="https://www.linkedin.com/in/joão-vinicius-vitral-9b25221b7/" target="_blank"><img src="img/toIcon/linkedin.ico" alt="linkedin" class="icon"><span class="nome">LinkedIn</span></a></li>
+                <li><a href="https://www.instagram.com/jxvtrl/" target="_blank"><img src="img/toIcon/instagram.ico" alt="instagram" class="icon"><span class="nome">Instagram</span></a></li>
+                <li><a href="https://twitter.com/jxvtrl" target="_blank"><img src="img/toIcon/twitter.ico" alt="twitter" class="icon"><span class="nome">Twitter</span></a></li>
+                <li><a href="https://wa.me/5521966767962" target="_blank"><img src="img/toIcon/whatsapp.ico" alt="whatsapp" class="icon"><span class="nome">WhatsApp</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="popupSobre">
+        <header id="headerSobrepop" style="display: flex;">
+            <h1>Sobre este Projeto</h1>
+            <img src="img/close-btn.png" alt="x-btn" onclick="Sobre()">
+        </header>
+        <p>Devo primeiramente agradecer e dizer a todos que me educaram e me formaram como a pessoa que eu sou hoje e me fizeram entender o mínimo de tecnologia para apreciar esta area. Sou profundamente grato por vocês fazerem parte da minha historia e da busca desta formação de web-developer e/ou quem sabe full-stack developer (Não sei dizer o que o futuro me guarda). <br> 
+        Este projeto mostra o quanto é possivel que qualquer um hoje em dia consegue estudar e correr atras para formar a base de qualquer assunto que queira. O céu é o limite.</p>
+    </div>
+    <div id="divSobre">
+        <header id="headerSobre" style="display: flex;">
+            <h1 style="font-size: 25px;">Sobre este Projeto</h1>
+            <img src="img/close-btn.png" alt="x-btn" onclick="Sobre()">
+        </header>
+        <p>Devo primeiramente agradecer e dizer a todos que me educaram e me formaram como a pessoa que eu sou hoje e me fizeram entender o mínimo de tecnologia para apreciar esta area. Sou profundamente grato por vocês fazerem parte da minha historia e da busca desta formação de web-developer e/ou quem sabe full-stack developer (Não sei dizer o que o futuro me guarda). <br> 
+        Este projeto mostra o quanto é possivel que qualquer um hoje em dia consegue estudar e correr atras para formar a base de qualquer assunto que queira. O céu é o limite.</p>
+    </div>
+
+    <div id="calculadora_geral">
+        <picture id="imgEscolhida">
+            <source media="(max-width: 850px)" srcset="img/displaySimples.png" type="image/png" >
+            <img src="img/displayUp.png" alt="Imagem Flexível">
+        </picture>
+        <div style="position: relative; margin: auto;" id="calculadora">
+            <div id="resultadodiv">
+                <p id="result">0</p>
+            </div>
+            <div id="divsbotoes">
+                <div id="cientifica">
+                    <tr>
+                        <td><button class="botoes btn-preto" onclick="inserir('(')">(</button></td>
+                        <td><button class="botoes btn-preto" onclick="inserir(')')">)</button></td>
+                        <td><button class="botoes btn-preto" onclick="resetMemoria()">mc</button></td>
+                        <td><button class="botoes btn-preto" onclick="memoriaMais()">m+</button></td>
+                        <td><button class="botoes btn-preto" onclick="memoriaMenos()">m-</button></td>
+                        <td><button class="botoes btn-preto " onclick="mostraMemoria()" id="mr">mr</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botoes btn-preto" style="background-color: green;">2<sup>nd</sup></button></td>
+                        <td><button class="botoes btn-preto" onclick="potencia(2)">x<sup>2</sup></button></td>
+                        <td><button class="botoes btn-preto" onclick="potencia(3)">x<sup>3</sup></button></td>
+                        <td><button class="botoes btn-preto" onclick="elevado()">x<sup>y</sup></button></td>
+                        <td><button class="botoes btn-preto" onclick="ConstE()">e<sup>x</sup></button></td>
+                        <td><button class="botoes btn-preto" onclick="potencia('',10)">10<sup>x</sup></button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botoes btn-preto" onclick="inversao()" ><sup><small>1</small></sup><big>&frasl;</big><small>x</small></button></td>
+                        <td><button class="botoes btn-preto" onclick="sqrt(2)">√x</button></td>
+                        <td><button class="botoes btn-preto" onclick="sqrt(3)">∛x</button></td>
+                        <td><button class="botoes btn-preto" onclick="sqrt(4)">∜x</button></td>
+                        <td><button class="botoes btn-preto" onclick="ln()">ln</button></td>
+                        <td><button class="botoes btn-preto" onclick="log10()">log<sub>10</sub></button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botoes btn-preto" onclick="exponencial()">x!</button></td>
+                        <td><button class="botoes btn-preto" onclick="seno()">sin</button></td>
+                        <td><button class="botoes btn-preto" onclick="cosseno()">cos</button></td>
+                        <td><button class="botoes btn-preto" onclick="tangente()">tan</button></td>
+                        <td><button class="botoes btn-preto" onclick="functionE()">e</button></td>
+                        <td><button class="botoes btn-preto" onclick="vezesDezElevado()">EE</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botoes btn-preto" onclick="rad()" style="background-color: green;">Rad</button></td>
+                        <td><button class="botoes btn-preto" onclick="sinh()">sinh</button></td>
+                        <td><button class="botoes btn-preto" onclick="cosh()">cosh</button></td>
+                        <td><button class="botoes btn-preto" onclick="tanh()">tanh</button></td>
+                        <td><button class="botoes btn-preto" onclick="pi()">π</button></td>
+                        <td><button class="botoes btn-preto" onclick="rand()">Rand</button></td>
+                    </tr>
+                </div>
+                <div id="normal">
+                    <tr>
+                        <td><button class="botoes btn-branco" onclick="reset()" id="ac">AC</button></td>
+                        <td><button class="botoes btn-branco" onclick="inverter()">±</button></td>
+                        <td><button class="botoes btn-branco" onclick="porcem()">%</button></td>
+                        <td><button class="botoes btn-laranja" onclick="inserir('/')">&divide;</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botoes btn-cinza " onclick="inserir('7')">7</button></td>
+                        <td><button class="botoes btn-cinza" onclick="inserir('8')">8</button></td>
+                        <td><button class="botoes btn-cinza" onclick="inserir('9')">9</button></td>
+                        <td><button class="botoes btn-laranja" onclick="inserir('*')">⨯</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botoes btn-cinza" onclick="inserir('4')">4</button></td>
+                        <td><button class="botoes btn-cinza" onclick="inserir('5')">5</button></td>
+                        <td><button class="botoes btn-cinza" onclick="inserir('6')">6</button></td>
+                        <td><button class="botoes btn-laranja" onclick="inserir('-')">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botoes btn-cinza" onclick="inserir('1')">1</button></td>
+                        <td><button class="botoes btn-cinza" onclick="inserir('2')">2</button></td>
+                        <td><button class="botoes btn-cinza" onclick="inserir('3')">3</button></td>
+                        <td><button class="botoes btn-laranja" onclick="inserir('+')">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botoes btn-cinza" id="botao_zero" onclick="inserir(0)">0</button></td>
+                        <td><button class="botoes btn-cinza" onclick="inserir('.')">.</button></td>
+                        <td><button class="botoes btn-laranja" onclick="calcular()">=</button></td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p id="footer"><a href="https://github.com/JxVtrl" target="_blank" id="id">&copy; Jxvtrl</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>  
+</body>
+</html>
